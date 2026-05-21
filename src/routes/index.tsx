@@ -303,15 +303,8 @@ function Index() {
           <div className="px-3 mt-2 text-[11px] text-white/60">9/62 Hot games</div>
           <LoadMore />
 
-          <SectionHeader title="Slot" />
-          <div className="grid grid-cols-3 gap-2 px-3">
-            {slotProviders.map((p, i) => (
-              <div key={p} className="aspect-square rounded-lg flex items-center justify-center text-xs font-bold"
-                style={{ background: `linear-gradient(135deg, hsl(${i * 50} 60% 30%), #1a2330)` }}>
-                {p}
-              </div>
-            ))}
-          </div>
+          <SectionHeader title="PG Slots" />
+          <GameGrid items={pgGames} />
           <LoadMore />
 
           <SectionHeader title="Blockchain" />
