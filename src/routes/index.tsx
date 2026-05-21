@@ -83,18 +83,15 @@ const categories = [
 ];
 
 const popularGames: { name: string; img?: string; tag?: "PG" | "WG" | "HOT" | "NEW" }[] = [
-  { name: "Fortune Tiger", img: gameTigresa, tag: "WG" },
-  { name: "Dragon Treasure", img: gameDragon, tag: "WG" },
-  { name: "Fortune House", img: gameFortuneHouse, tag: "WG" },
-  { name: "Fortune Horse", tag: "WG" },
-  { name: "Fortune Horse", tag: "WG" },
-  { name: "PG Slots", tag: "PG" },
-  { name: "Fortune Rabbit", img: pgRabbit, tag: "PG" },
-  { name: "Fortune Tiger", img: pgTigrin, tag: "PG" },
-  { name: "Fortune Dragon", img: pgDragao, tag: "PG" },
-  { name: "Mythical Guardians", img: pgMystic, tag: "PG" },
-  { name: "Fortune Ox", img: pgTouro, tag: "PG" },
-  { name: "Marble Run", tag: "NEW" },
+  { name: "Fortune Tiger", img: PG_GAMES[0], tag: "PG" },
+  { name: "Fortune Ox", img: PG_GAMES[1], tag: "PG" },
+  { name: "Fortune Rabbit", img: PG_GAMES[2], tag: "PG" },
+  { name: "Fortune Dragon", img: PG_GAMES[3], tag: "PG" },
+  { name: "Mystic Guardians", img: PG_GAMES[4], tag: "PG" },
+  { name: "Lucky Neko", img: PG_GAMES[5], tag: "PG" },
+  { name: "Treasure Bowl", img: PG_GAMES[6], tag: "HOT" },
+  { name: "Mahjong Ways", img: PG_GAMES[7], tag: "NEW" },
+  { name: "Fortune House", img: PG_GAMES[0], tag: "PG" },
 ];
 
 const slotProviderCards = [
@@ -129,11 +126,11 @@ const sportGamesData = [
 ];
 
 const winners = Array.from({ length: 14 }, (_, i) => ({
-  game: ["Fortune Rabbit 2", "Fortune Rabbit", "Fortune Rabbit 2", "Treasure Bowl X-Huge", "Fortune Rabbit"][i % 5],
+  game: ["Fortune Rabbit 2", "Fortune Tiger", "Fortune Ox", "Treasure Bowl", "Fortune Dragon"][i % 5],
   mask: ["9***", "5***", "3***", "2***", "7***"][i % 5],
   mult: [306, 547, 502, 56, 171, 98, 215][i % 7],
-  img: [pgRabbit, gameRabbit, pgRabbit, gameFortuneHouse, pgRabbit][i % 5],
-  brand: (["WG", "WG", "WG", "JDB", "WG"] as const)[i % 5],
+  img: WINNER_IMGS[i % WINNER_IMGS.length],
+  brand: (["WG", "PG", "WG", "JDB", "PG"] as const)[i % 5],
 }));
 
 function TagPill({ tag }: { tag?: "PG" | "WG" | "HOT" | "NEW" }) {
