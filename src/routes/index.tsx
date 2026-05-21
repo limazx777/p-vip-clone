@@ -94,10 +94,13 @@ function SectionHeader({ title }: { title: string }) {
   );
 }
 
-function GameGrid({ items }: { items: string[] }) {
+function GameGrid({ items }: { items: (string | { name: string; img?: string })[] }) {
   return (
     <div className="grid grid-cols-3 gap-2 px-3">
-      {items.map((g, i) => <GameCard key={g + i} name={g} idx={i} />)}
+      {items.map((g, i) => {
+        const item = typeof g === "string" ? { name: g } : g;
+        return <GameCard key={item.name + i} name={item.name} img={item.img} idx={i} />;
+      })}
     </div>
   );
 }
