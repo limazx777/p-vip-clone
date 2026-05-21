@@ -5,26 +5,53 @@ import {
   Fish, Spade, Trophy, Clock, Heart, Send, MessageCircle, HelpCircle, Wallet,
   ArrowDownToLine, Sparkles, Headphones, MoreHorizontal, ChevronRight,
 } from "lucide-react";
-import banner1 from "@/assets/banner_1.png";
-import banner2 from "@/assets/banner_2.png";
-import banner3 from "@/assets/banner_3.png";
-import banner4 from "@/assets/banner_4.png";
-import banner5 from "@/assets/banner_5.png";
-import banner6 from "@/assets/banner_6.png";
-import banner7 from "@/assets/banner_7.png";
-import gameTigresa from "@/assets/game-tigresa.avif";
-import gameDragon from "@/assets/game-dragon.avif";
-import gameFortuneHouse from "@/assets/game-fortune-house.avif";
-import gameRabbit from "@/assets/game-rabbit.avif";
-import pgTigrin from "@/assets/pg-tigrin.avif";
-import pgTouro from "@/assets/pg-touro.avif";
-import pgDragao from "@/assets/pg-dragao.avif";
-import pgFortuneHouse2 from "@/assets/pg-fortune-house-2.avif";
-import pgMax from "@/assets/pg-max.avif";
-import pgMystic from "@/assets/pg-mystic-guardians.avif";
-import pgRabbit from "@/assets/pg-rabbit.avif";
 
-const BANNERS = [banner6, banner7, banner1, banner2, banner3, banner4, banner5];
+// Real PGVIP banners (from pgvip1122.com)
+import pgvipBanner1 from "@/assets/pgvip/img_1994022337179090945.png";
+import pgvipBanner2 from "@/assets/pgvip/img_1994022411785891842.png";
+import pgvipBanner3 from "@/assets/pgvip/img_1994022571942215682.png";
+import pgvipBanner4 from "@/assets/pgvip/img_1994023475471585282.png";
+import pgvipBanner5 from "@/assets/pgvip/img_1994023674686513154.png";
+import pgvipBanner6 from "@/assets/pgvip/img_1913866154335563778.jpg";
+
+// Real PGVIP game thumbnails
+import pgGame1 from "@/assets/pgvip/2000098_default.png";
+import pgGame2 from "@/assets/pgvip/2000126_default.png";
+import pgGame3 from "@/assets/pgvip/2001007_default.png";
+import pgGame4 from "@/assets/pgvip/2001027_default.png";
+import pgGame5 from "@/assets/pgvip/2001064_default.png";
+import pgGame6 from "@/assets/pgvip/2001066_default.png";
+import pgGame7 from "@/assets/pgvip/3060_default.png";
+import pgGame8 from "@/assets/pgvip/3880011_default.png";
+
+// Category icons (sprites from site)
+import catBy from "@/assets/pgvip/_sprite_icon_dtfl_by_1.png";
+import catDz from "@/assets/pgvip/_sprite_icon_dtfl_dz_1.png";
+import catQkl from "@/assets/pgvip/_sprite_icon_dtfl_qkl_1.png";
+import catQp from "@/assets/pgvip/_sprite_icon_dtfl_qp_1.png";
+import catRm from "@/assets/pgvip/_sprite_icon_dtfl_rm_1.png";
+import catSc from "@/assets/pgvip/_sprite_icon_dtfl_sc_1.png";
+import catSw from "@/assets/pgvip/_sprite_icon_dtfl_sw_1.png";
+import catTy from "@/assets/pgvip/_sprite_icon_dtfl_ty_1.png";
+import catZj from "@/assets/pgvip/_sprite_icon_dtfl_zj_1.png";
+
+// Quick action icons
+import qaGd from "@/assets/pgvip/_sprite_icon_dt_1gd.png";
+import qaKf from "@/assets/pgvip/_sprite_icon_dt_1kf.png";
+import qaTg from "@/assets/pgvip/_sprite_icon_dt_1tg.png";
+import qaXx from "@/assets/pgvip/_sprite_icon_dt_1xx.png";
+
+// Winner gifs (live wins ticker)
+import win1 from "@/assets/pgvip/upload_2048664132579106818.gif";
+import win2 from "@/assets/pgvip/upload_2048664313159553025.gif";
+import win3 from "@/assets/pgvip/upload_2048664437913432065.gif";
+import win4 from "@/assets/pgvip/upload_2048664613208391682.gif";
+import win5 from "@/assets/pgvip/upload_2048664879127560194.gif";
+import win6 from "@/assets/pgvip/upload_2048665011692437505.gif";
+
+const BANNERS = [pgvipBanner1, pgvipBanner2, pgvipBanner3, pgvipBanner4, pgvipBanner5, pgvipBanner6];
+const PG_GAMES = [pgGame1, pgGame2, pgGame3, pgGame4, pgGame5, pgGame6, pgGame7, pgGame8];
+const WINNER_IMGS = [win1, win2, win3, win4, win5, win6];
 
 export const Route = createFileRoute("/")({ component: Index });
 
@@ -44,30 +71,29 @@ const partners = [
   { name: "7t777", grad: "linear-gradient(135deg,#0a0a0a,#2a2a2a)" },
 ];
 
+const CatIcon = (src: string) => () => <img src={src} alt="" className="w-4 h-4 object-contain" />;
 const categories = [
-  { id: "popular", label: "Popular", icon: Sparkles },
-  { id: "slots", label: "Slots", icon: () => <span className="text-[11px] font-black" style={{ color: GOLD }}>777</span> },
-  { id: "blockchain", label: "Blockchain", icon: () => <span>🎲</span> },
-  { id: "pescaria", label: "Pescaria", icon: Fish },
-  { id: "cartas", label: "Cartas", icon: Spade },
-  { id: "esporte", label: "Esporte", icon: Trophy },
-  { id: "recente", label: "Recente", icon: Clock },
-  { id: "favoritos", label: "Favoritos", icon: Star },
+  { id: "popular", label: "Popular", icon: CatIcon(catRm) },
+  { id: "slots", label: "Slots", icon: CatIcon(catDz) },
+  { id: "blockchain", label: "Blockchain", icon: CatIcon(catQkl) },
+  { id: "pescaria", label: "Pescaria", icon: CatIcon(catBy) },
+  { id: "cartas", label: "Cartas", icon: CatIcon(catQp) },
+  { id: "esporte", label: "Esporte", icon: CatIcon(catTy) },
+  { id: "recente", label: "Recente", icon: CatIcon(catSc) },
+  { id: "favoritos", label: "Favoritos", icon: CatIcon(catSw) },
+  { id: "promo", label: "Promo", icon: CatIcon(catZj) },
 ];
 
 const popularGames: { name: string; img?: string; tag?: "PG" | "WG" | "HOT" | "NEW" }[] = [
-  { name: "Fortune Tiger", img: gameTigresa, tag: "WG" },
-  { name: "Dragon Treasure", img: gameDragon, tag: "WG" },
-  { name: "Fortune House", img: gameFortuneHouse, tag: "WG" },
-  { name: "Fortune Horse", tag: "WG" },
-  { name: "Fortune Horse", tag: "WG" },
-  { name: "PG Slots", tag: "PG" },
-  { name: "Fortune Rabbit", img: pgRabbit, tag: "PG" },
-  { name: "Fortune Tiger", img: pgTigrin, tag: "PG" },
-  { name: "Fortune Dragon", img: pgDragao, tag: "PG" },
-  { name: "Mythical Guardians", img: pgMystic, tag: "PG" },
-  { name: "Fortune Ox", img: pgTouro, tag: "PG" },
-  { name: "Marble Run", tag: "NEW" },
+  { name: "Fortune Tiger", img: PG_GAMES[0], tag: "PG" },
+  { name: "Fortune Ox", img: PG_GAMES[1], tag: "PG" },
+  { name: "Fortune Rabbit", img: PG_GAMES[2], tag: "PG" },
+  { name: "Fortune Dragon", img: PG_GAMES[3], tag: "PG" },
+  { name: "Mystic Guardians", img: PG_GAMES[4], tag: "PG" },
+  { name: "Lucky Neko", img: PG_GAMES[5], tag: "PG" },
+  { name: "Treasure Bowl", img: PG_GAMES[6], tag: "HOT" },
+  { name: "Mahjong Ways", img: PG_GAMES[7], tag: "NEW" },
+  { name: "Fortune House", img: PG_GAMES[0], tag: "PG" },
 ];
 
 const slotProviderCards = [
@@ -102,11 +128,11 @@ const sportGamesData = [
 ];
 
 const winners = Array.from({ length: 14 }, (_, i) => ({
-  game: ["Fortune Rabbit 2", "Fortune Rabbit", "Fortune Rabbit 2", "Treasure Bowl X-Huge", "Fortune Rabbit"][i % 5],
+  game: ["Fortune Rabbit 2", "Fortune Tiger", "Fortune Ox", "Treasure Bowl", "Fortune Dragon"][i % 5],
   mask: ["9***", "5***", "3***", "2***", "7***"][i % 5],
   mult: [306, 547, 502, 56, 171, 98, 215][i % 7],
-  img: [pgRabbit, gameRabbit, pgRabbit, gameFortuneHouse, pgRabbit][i % 5],
-  brand: (["WG", "WG", "WG", "JDB", "WG"] as const)[i % 5],
+  img: WINNER_IMGS[i % WINNER_IMGS.length],
+  brand: (["WG", "PG", "WG", "JDB", "PG"] as const)[i % 5],
 }));
 
 function TagPill({ tag }: { tag?: "PG" | "WG" | "HOT" | "NEW" }) {
@@ -341,14 +367,14 @@ function Index() {
         {/* Quick actions */}
         <div className="grid grid-cols-4 gap-2 px-3 pb-2">
           {[
-            { label: "Promoção", icon: Gift, badge: "0,01", color: "#3aaaff" },
-            { label: "Surpresa", icon: Sparkles, color: GOLD },
-            { label: "Suporte", icon: Headphones, color: "#3aaaff" },
-            { label: "Mais", icon: MoreHorizontal, color: "#a04aff" },
-          ].map(({ label, icon: Icon, badge, color }) => (
+            { label: "Promoção", img: qaXx, badge: "0,01" },
+            { label: "Surpresa", img: qaTg },
+            { label: "Suporte", img: qaKf },
+            { label: "Mais", img: qaGd },
+          ].map(({ label, img, badge }) => (
             <button key={label} className="flex flex-col items-center justify-center gap-1 py-1">
               <div className="relative">
-                <Icon className="w-7 h-7" style={{ color }} />
+                <img src={img} alt={label} className="w-8 h-8 object-contain" />
                 {badge && (
                   <span className="absolute -top-1 -right-2 text-[8px] font-bold px-1 py-0.5 rounded-full" style={{ background: "#2dd4a8", color: "#000" }}>
                     {badge}
@@ -359,6 +385,7 @@ function Index() {
             </button>
           ))}
         </div>
+
 
         {/* Category tabs */}
         <div className="flex overflow-x-auto no-scrollbar px-3 gap-3 border-b border-white/10 pb-2 mt-1">
@@ -371,7 +398,7 @@ function Index() {
                 className="flex items-center gap-1 py-1.5 shrink-0 text-[12px] relative"
                 style={{ color: active ? GOLD : "rgba(255,255,255,0.7)", fontWeight: active ? 700 : 500 }}
               >
-                <Icon className="w-4 h-4" />
+                <Icon />
                 {label}
                 {active && <span className="absolute -bottom-2 left-0 right-0 h-0.5 rounded" style={{ background: GOLD }} />}
               </button>
