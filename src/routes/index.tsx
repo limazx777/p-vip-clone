@@ -71,15 +71,17 @@ const partners = [
   { name: "7t777", grad: "linear-gradient(135deg,#0a0a0a,#2a2a2a)" },
 ];
 
+const CatIcon = (src: string) => () => <img src={src} alt="" className="w-4 h-4 object-contain" />;
 const categories = [
-  { id: "popular", label: "Popular", icon: Sparkles },
-  { id: "slots", label: "Slots", icon: () => <span className="text-[11px] font-black" style={{ color: GOLD }}>777</span> },
-  { id: "blockchain", label: "Blockchain", icon: () => <span>🎲</span> },
-  { id: "pescaria", label: "Pescaria", icon: Fish },
-  { id: "cartas", label: "Cartas", icon: Spade },
-  { id: "esporte", label: "Esporte", icon: Trophy },
-  { id: "recente", label: "Recente", icon: Clock },
-  { id: "favoritos", label: "Favoritos", icon: Star },
+  { id: "popular", label: "Popular", icon: CatIcon(catRm) },
+  { id: "slots", label: "Slots", icon: CatIcon(catDz) },
+  { id: "blockchain", label: "Blockchain", icon: CatIcon(catQkl) },
+  { id: "pescaria", label: "Pescaria", icon: CatIcon(catBy) },
+  { id: "cartas", label: "Cartas", icon: CatIcon(catQp) },
+  { id: "esporte", label: "Esporte", icon: CatIcon(catTy) },
+  { id: "recente", label: "Recente", icon: CatIcon(catSc) },
+  { id: "favoritos", label: "Favoritos", icon: CatIcon(catSw) },
+  { id: "promo", label: "Promo", icon: CatIcon(catZj) },
 ];
 
 const popularGames: { name: string; img?: string; tag?: "PG" | "WG" | "HOT" | "NEW" }[] = [
