@@ -11,6 +11,10 @@ import banner4 from "@/assets/banner_4.png";
 import banner5 from "@/assets/banner_5.png";
 import banner6 from "@/assets/banner_6.png";
 import banner7 from "@/assets/banner_7.png";
+import gameTigresa from "@/assets/game-tigresa.avif";
+import gameDragon from "@/assets/game-dragon.avif";
+import gameFortuneHouse from "@/assets/game-fortune-house.avif";
+import gameRabbit from "@/assets/game-rabbit.avif";
 
 const BANNERS = [banner6, banner7, banner1, banner2, banner3, banner4, banner5];
 
@@ -33,9 +37,13 @@ const categories = [
   { id: "favorites", label: "Favorites", icon: Heart },
 ];
 
-const hotGames = [
-  "Fortune Tiger", "Fortune Rabbit", "Fortune Ox", "Fortune Mouse",
-  "Wild Bandito", "Treasures Aztec", "Lucky Neko", "Mahjong Ways", "Caishen Wins",
+const hotGames: { name: string; img?: string }[] = [
+  { name: "Fortune Tiger", img: gameTigresa },
+  { name: "Dragon Treasure", img: gameDragon },
+  { name: "Fortune House", img: gameFortuneHouse },
+  { name: "Fortune Rabbit", img: gameRabbit },
+  { name: "Fortune Ox" }, { name: "Fortune Mouse" },
+  { name: "Wild Bandito" }, { name: "Lucky Neko" }, { name: "Mahjong Ways" },
 ];
 const slotProviders = ["PP Slots", "PG Slots", "JILI", "CQ9", "Spribe", "Habanero"];
 const blockGames = ["Crash X", "Aviator", "Mines", "Plinko", "Limbo", "Dice"];
@@ -49,16 +57,20 @@ const winners = Array.from({ length: 12 }, (_, i) => ({
   mult: [98, 120, 76, 215, 48, 312, 88, 56][i % 8],
 }));
 
-function GameCard({ name, idx }: { name: string; idx: number }) {
+function GameCard({ name, idx, img }: { name: string; idx: number; img?: string }) {
   const hues = [12, 200, 280, 340, 50, 160];
   const h = hues[idx % hues.length];
   return (
     <div className="relative">
       <div
         className="aspect-square rounded-lg overflow-hidden flex items-end p-1.5"
-        style={{ background: `linear-gradient(135deg, hsl(${h} 70% 35%), hsl(${(h + 40) % 360} 70% 20%))` }}
+        style={
+          img
+            ? { backgroundImage: `url(${img})`, backgroundSize: "cover", backgroundPosition: "center" }
+            : { background: `linear-gradient(135deg, hsl(${h} 70% 35%), hsl(${(h + 40) % 360} 70% 20%))` }
+        }
       >
-        <div className="text-[9px] text-white/80 font-semibold bg-black/40 px-1 rounded">HOT</div>
+        <div className="text-[9px] text-white/90 font-bold bg-black/50 px-1 rounded">HOT</div>
       </div>
       <button className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/40 flex items-center justify-center">
         <Star className="w-3 h-3 text-white/80" />
