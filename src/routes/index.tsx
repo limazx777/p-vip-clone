@@ -15,6 +15,13 @@ import gameTigresa from "@/assets/game-tigresa.avif";
 import gameDragon from "@/assets/game-dragon.avif";
 import gameFortuneHouse from "@/assets/game-fortune-house.avif";
 import gameRabbit from "@/assets/game-rabbit.avif";
+import pgTigrin from "@/assets/pg-tigrin.avif";
+import pgTouro from "@/assets/pg-touro.avif";
+import pgDragao from "@/assets/pg-dragao.avif";
+import pgFortuneHouse2 from "@/assets/pg-fortune-house-2.avif";
+import pgMax from "@/assets/pg-max.avif";
+import pgMystic from "@/assets/pg-mystic-guardians.avif";
+import pgRabbit from "@/assets/pg-rabbit.avif";
 
 const BANNERS = [banner6, banner7, banner1, banner2, banner3, banner4, banner5];
 
@@ -45,7 +52,16 @@ const hotGames: { name: string; img?: string }[] = [
   { name: "Fortune Ox" }, { name: "Fortune Mouse" },
   { name: "Wild Bandito" }, { name: "Lucky Neko" }, { name: "Mahjong Ways" },
 ];
-const slotProviders = ["PP Slots", "PG Slots", "JILI", "CQ9", "Spribe", "Habanero"];
+const pgGames: { name: string; img?: string }[] = [
+  { name: "Fortune Tiger", img: pgTigrin },
+  { name: "Fortune Ox", img: pgTouro },
+  { name: "Fortune Dragon", img: pgDragao },
+  { name: "Fortune House", img: pgFortuneHouse2 },
+  { name: "Max Win", img: pgMax },
+  { name: "Mystic Guardians", img: pgMystic },
+  { name: "Fortune Rabbit", img: pgRabbit },
+  { name: "Mahjong Ways" }, { name: "Lucky Neko" },
+];
 const blockGames = ["Crash X", "Aviator", "Mines", "Plinko", "Limbo", "Dice"];
 const fishGames = ["Bombing Fish", "Jackpot Fishing", "Mega Fish", "All-Star Fish", "Boom Legend", "Fish Hunter"];
 const cardGames = ["Baccarat", "Dragon Tiger", "Sic Bo", "Poker", "Andar Bahar", "Teen Patti"];
@@ -287,15 +303,8 @@ function Index() {
           <div className="px-3 mt-2 text-[11px] text-white/60">9/62 Hot games</div>
           <LoadMore />
 
-          <SectionHeader title="Slot" />
-          <div className="grid grid-cols-3 gap-2 px-3">
-            {slotProviders.map((p, i) => (
-              <div key={p} className="aspect-square rounded-lg flex items-center justify-center text-xs font-bold"
-                style={{ background: `linear-gradient(135deg, hsl(${i * 50} 60% 30%), #1a2330)` }}>
-                {p}
-              </div>
-            ))}
-          </div>
+          <SectionHeader title="PG Slots" />
+          <GameGrid items={pgGames} />
           <LoadMore />
 
           <SectionHeader title="Blockchain" />
