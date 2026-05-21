@@ -367,14 +367,14 @@ function Index() {
         {/* Quick actions */}
         <div className="grid grid-cols-4 gap-2 px-3 pb-2">
           {[
-            { label: "Promoção", icon: Gift, badge: "0,01", color: "#3aaaff" },
-            { label: "Surpresa", icon: Sparkles, color: GOLD },
-            { label: "Suporte", icon: Headphones, color: "#3aaaff" },
-            { label: "Mais", icon: MoreHorizontal, color: "#a04aff" },
-          ].map(({ label, icon: Icon, badge, color }) => (
+            { label: "Promoção", img: qaXx, badge: "0,01" },
+            { label: "Surpresa", img: qaTg },
+            { label: "Suporte", img: qaKf },
+            { label: "Mais", img: qaGd },
+          ].map(({ label, img, badge }) => (
             <button key={label} className="flex flex-col items-center justify-center gap-1 py-1">
               <div className="relative">
-                <Icon className="w-7 h-7" style={{ color }} />
+                <img src={img} alt={label} className="w-8 h-8 object-contain" />
                 {badge && (
                   <span className="absolute -top-1 -right-2 text-[8px] font-bold px-1 py-0.5 rounded-full" style={{ background: "#2dd4a8", color: "#000" }}>
                     {badge}
@@ -385,6 +385,7 @@ function Index() {
             </button>
           ))}
         </div>
+
 
         {/* Category tabs */}
         <div className="flex overflow-x-auto no-scrollbar px-3 gap-3 border-b border-white/10 pb-2 mt-1">
