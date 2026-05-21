@@ -5,26 +5,53 @@ import {
   Fish, Spade, Trophy, Clock, Heart, Send, MessageCircle, HelpCircle, Wallet,
   ArrowDownToLine, Sparkles, Headphones, MoreHorizontal, ChevronRight,
 } from "lucide-react";
-import banner1 from "@/assets/banner_1.png";
-import banner2 from "@/assets/banner_2.png";
-import banner3 from "@/assets/banner_3.png";
-import banner4 from "@/assets/banner_4.png";
-import banner5 from "@/assets/banner_5.png";
-import banner6 from "@/assets/banner_6.png";
-import banner7 from "@/assets/banner_7.png";
-import gameTigresa from "@/assets/game-tigresa.avif";
-import gameDragon from "@/assets/game-dragon.avif";
-import gameFortuneHouse from "@/assets/game-fortune-house.avif";
-import gameRabbit from "@/assets/game-rabbit.avif";
-import pgTigrin from "@/assets/pg-tigrin.avif";
-import pgTouro from "@/assets/pg-touro.avif";
-import pgDragao from "@/assets/pg-dragao.avif";
-import pgFortuneHouse2 from "@/assets/pg-fortune-house-2.avif";
-import pgMax from "@/assets/pg-max.avif";
-import pgMystic from "@/assets/pg-mystic-guardians.avif";
-import pgRabbit from "@/assets/pg-rabbit.avif";
 
-const BANNERS = [banner6, banner7, banner1, banner2, banner3, banner4, banner5];
+// Real PGVIP banners (from pgvip1122.com)
+import pgvipBanner1 from "@/assets/pgvip/img_1994022337179090945.png";
+import pgvipBanner2 from "@/assets/pgvip/img_1994022411785891842.png";
+import pgvipBanner3 from "@/assets/pgvip/img_1994022571942215682.png";
+import pgvipBanner4 from "@/assets/pgvip/img_1994023475471585282.png";
+import pgvipBanner5 from "@/assets/pgvip/img_1994023674686513154.png";
+import pgvipBanner6 from "@/assets/pgvip/img_1913866154335563778.jpg";
+
+// Real PGVIP game thumbnails
+import pgGame1 from "@/assets/pgvip/2000098_default.png";
+import pgGame2 from "@/assets/pgvip/2000126_default.png";
+import pgGame3 from "@/assets/pgvip/2001007_default.png";
+import pgGame4 from "@/assets/pgvip/2001027_default.png";
+import pgGame5 from "@/assets/pgvip/2001064_default.png";
+import pgGame6 from "@/assets/pgvip/2001066_default.png";
+import pgGame7 from "@/assets/pgvip/3060_default.png";
+import pgGame8 from "@/assets/pgvip/3880011_default.png";
+
+// Category icons (sprites from site)
+import catBy from "@/assets/pgvip/_sprite_icon_dtfl_by_1.png";
+import catDz from "@/assets/pgvip/_sprite_icon_dtfl_dz_1.png";
+import catQkl from "@/assets/pgvip/_sprite_icon_dtfl_qkl_1.png";
+import catQp from "@/assets/pgvip/_sprite_icon_dtfl_qp_1.png";
+import catRm from "@/assets/pgvip/_sprite_icon_dtfl_rm_1.png";
+import catSc from "@/assets/pgvip/_sprite_icon_dtfl_sc_1.png";
+import catSw from "@/assets/pgvip/_sprite_icon_dtfl_sw_1.png";
+import catTy from "@/assets/pgvip/_sprite_icon_dtfl_ty_1.png";
+import catZj from "@/assets/pgvip/_sprite_icon_dtfl_zj_1.png";
+
+// Quick action icons
+import qaGd from "@/assets/pgvip/_sprite_icon_dt_1gd.png";
+import qaKf from "@/assets/pgvip/_sprite_icon_dt_1kf.png";
+import qaTg from "@/assets/pgvip/_sprite_icon_dt_1tg.png";
+import qaXx from "@/assets/pgvip/_sprite_icon_dt_1xx.png";
+
+// Winner gifs (live wins ticker)
+import win1 from "@/assets/pgvip/upload_2048664132579106818.gif";
+import win2 from "@/assets/pgvip/upload_2048664313159553025.gif";
+import win3 from "@/assets/pgvip/upload_2048664437913432065.gif";
+import win4 from "@/assets/pgvip/upload_2048664613208391682.gif";
+import win5 from "@/assets/pgvip/upload_2048664879127560194.gif";
+import win6 from "@/assets/pgvip/upload_2048665011692437505.gif";
+
+const BANNERS = [pgvipBanner1, pgvipBanner2, pgvipBanner3, pgvipBanner4, pgvipBanner5, pgvipBanner6];
+const PG_GAMES = [pgGame1, pgGame2, pgGame3, pgGame4, pgGame5, pgGame6, pgGame7, pgGame8];
+const WINNER_IMGS = [win1, win2, win3, win4, win5, win6];
 
 export const Route = createFileRoute("/")({ component: Index });
 
