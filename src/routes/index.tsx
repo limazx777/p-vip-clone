@@ -360,19 +360,24 @@ function Index() {
           className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] grid grid-cols-5 border-t border-white/10 z-30"
           style={{ background: "#0f1822" }}
         >
-          {[
-            { label: "TOP", icon: Rocket },
-            { label: "Offers", icon: Gift },
-            { label: "Register", icon: UserPlus, highlight: true },
-            { label: "Login", icon: LogIn },
-            { label: "Profile", icon: User },
-          ].map(({ label, icon: Icon, highlight }) => (
-            <button key={label} className="flex flex-col items-center justify-center py-2 gap-0.5">
+          {([
+            { label: "TOP", icon: Rocket, to: "/" as const },
+            { label: "Offers", icon: Gift, to: "/offers" as const },
+            { label: "Register", icon: UserPlus, to: "/register" as const, highlight: true },
+            { label: "Login", icon: LogIn, to: "/login" as const },
+            { label: "Profile", icon: User, to: "/profile" as const },
+          ]).map(({ label, icon: Icon, to, highlight }) => (
+            <Link
+              key={label}
+              to={to}
+              onClick={label === "TOP" ? () => window.scrollTo({ top: 0, behavior: "smooth" }) : undefined}
+              className="flex flex-col items-center justify-center py-2 gap-0.5"
+            >
               <Icon className="w-5 h-5" style={{ color: highlight ? GOLD : "rgba(255,255,255,0.7)" }} />
               <span className="text-[10px]" style={{ color: highlight ? GOLD : "rgba(255,255,255,0.7)" }}>
                 {label}
               </span>
-            </button>
+            </Link>
           ))}
         </div>
 
