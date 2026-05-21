@@ -397,7 +397,7 @@ function Index() {
                 className="flex items-center gap-1 py-1.5 shrink-0 text-[12px] relative"
                 style={{ color: active ? GOLD : "rgba(255,255,255,0.7)", fontWeight: active ? 700 : 500 }}
               >
-                <Icon className="w-4 h-4" />
+                <Icon />
                 {label}
                 {active && <span className="absolute -bottom-2 left-0 right-0 h-0.5 rounded" style={{ background: GOLD }} />}
               </button>
