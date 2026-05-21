@@ -4,6 +4,15 @@ import {
   Search, X, Megaphone, ChevronDown, Star, Rocket, Gift, UserPlus, LogIn, User,
   Flame, Dices, Link2, Fish, Spade, Trophy, FlaskConical, Clock, Heart, Send, MessageCircle,
 } from "lucide-react";
+import banner1 from "@/assets/banner_1.png";
+import banner2 from "@/assets/banner_2.png";
+import banner3 from "@/assets/banner_3.png";
+import banner4 from "@/assets/banner_4.png";
+import banner5 from "@/assets/banner_5.png";
+import banner6 from "@/assets/banner_6.png";
+import banner7 from "@/assets/banner_7.png";
+
+const BANNERS = [banner6, banner7, banner1, banner2, banner3, banner4, banner5];
 
 export const Route = createFileRoute("/")({ component: Index });
 
@@ -99,7 +108,7 @@ function Index() {
   const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const t = setInterval(() => setBannerIdx((i) => (i + 1) % 4), 4000);
+    const t = setInterval(() => setBannerIdx((i) => (i + 1) % BANNERS.length), 4000);
     return () => clearInterval(t);
   }, []);
 
@@ -165,29 +174,14 @@ function Index() {
           ref={carouselRef}
           className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar px-3 gap-2"
         >
-          {[0, 1, 2, 3].map((i) => {
-            const grads = [
-              "linear-gradient(120deg,#c91f1f,#7a0e0e)",
-              "linear-gradient(120deg,#1a6cff,#0b2e7a)",
-              "linear-gradient(120deg,#d4a017,#7a5a0a)",
-              "linear-gradient(120deg,#1aa05a,#0a4a2a)",
-            ];
-            const titles = ["100% Bônus de Boas-vindas", "Mega Jackpot Diário", "Cashback 20%", "Indique e Ganhe"];
-            return (
-              <div
-                key={i}
-                className="snap-center shrink-0 w-full rounded-xl h-32 flex flex-col justify-center px-4"
-                style={{ background: grads[i] }}
-              >
-                <div className="text-[10px] uppercase tracking-widest text-white/70">Promoção</div>
-                <div className="text-lg font-extrabold leading-tight">{titles[i]}</div>
-                <div className="text-[11px] text-white/80 mt-1">Toque para participar →</div>
-              </div>
-            );
-          })}
+          {BANNERS.map((src, i) => (
+            <div key={i} className="snap-center shrink-0 w-full rounded-xl overflow-hidden">
+              <img src={src} alt={`Promoção ${i + 1}`} className="w-full h-auto block" />
+            </div>
+          ))}
         </div>
         <div className="flex justify-center gap-1 mt-2">
-          {[0, 1, 2, 3].map((i) => (
+          {BANNERS.map((_, i) => (
             <span
               key={i}
               className="h-1 rounded-full transition-all"
