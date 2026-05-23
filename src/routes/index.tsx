@@ -112,34 +112,34 @@ const popularGames: { name: string; img?: string; tag?: "PG" | "WG" | "HOT" | "N
 ];
 
 const slotProviderCards = [
-  { name: "PG Slots", grad: "linear-gradient(180deg,#ff6b35,#c4151c)" },
-  { name: "WG Slots", grad: "linear-gradient(180deg,#ff8aa8,#c4151c)" },
-  { name: "TADA Slots", grad: "linear-gradient(180deg,#ff5577,#a4101a)" },
-  { name: "PP Slots", grad: "linear-gradient(180deg,#ff7a2f,#a4101a)" },
-  { name: "MarbleX Slots", grad: "linear-gradient(180deg,#2d6cff,#0a2a8a)" },
-  { name: "JDB Slots", grad: "linear-gradient(180deg,#ff3a3a,#7a0a0a)" },
-  { name: "KA Slots", grad: "linear-gradient(180deg,#ff7a2f,#7a1a0a)" },
-  { name: "MG Slots", grad: "linear-gradient(180deg,#5577ff,#1a2a7a)" },
-  { name: "CQ9 Slots", grad: "linear-gradient(180deg,#ffb84a,#a45a0a)" },
+  { name: "PG Slots", img: provPG },
+  { name: "WG Slots", img: provWG },
+  { name: "TADA Slots", img: provTADA },
+  { name: "PP Slots", img: provPP },
+  { name: "MarbleX Slots", img: provMarbleX },
+  { name: "JDB Slots", img: provJDB },
+  { name: "KA Slots", img: provKA },
+  { name: "MG Slots", img: provMG },
+  { name: "CQ9 Slots", img: provCQ9 },
 ];
 
 const blockchainGames = [
-  { name: "TADA Blockchain", grad: "linear-gradient(180deg,#a04aff,#3a1a7a)" },
-  { name: "WG Blockchain", grad: "linear-gradient(180deg,#ffb84a,#a45a0a)" },
-  { name: "JDB Blockchain", grad: "linear-gradient(180deg,#ffd84a,#a48a0a)" },
+  { name: "TADA Blockchain", img: provTADA },
+  { name: "WG Blockchain", img: provWG },
+  { name: "JDB Blockchain", img: provJDB },
 ];
 const fishGamesData = [
-  { name: "JDB Pescaria", grad: "linear-gradient(180deg,#1a8aff,#0a3a7a)" },
-  { name: "TADA Pescaria", grad: "linear-gradient(180deg,#3aaaff,#0a4a8a)" },
-  { name: "WG Pescaria", grad: "linear-gradient(180deg,#7a3aff,#2a0a5a)" },
+  { name: "JDB Pescaria", img: provJDB },
+  { name: "TADA Pescaria", img: provTADA },
+  { name: "WG Pescaria", img: provWG },
 ];
 const cardGamesData = [
-  { name: "TADA Cartas", grad: "linear-gradient(180deg,#3aaaff,#0a4a8a)" },
-  { name: "Baison Cartas", grad: "linear-gradient(180deg,#a04aff,#5a1a8a)" },
-  { name: "WG Cartas", grad: "linear-gradient(180deg,#c44aff,#5a1a8a)" },
+  { name: "TADA Cartas", img: provTADA },
+  { name: "Baison Cartas", img: provBaison },
+  { name: "WG Cartas", img: provWG },
 ];
 const sportGamesData = [
-  { name: "WG Esporte", grad: "linear-gradient(180deg,#4a6a8a,#1a2a4a)" },
+  { name: "WG Esporte", img: provWG },
 ];
 
 const winners = Array.from({ length: 14 }, (_, i) => ({
