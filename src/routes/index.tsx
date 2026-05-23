@@ -49,9 +49,24 @@ import win4 from "@/assets/pgvip/upload_2048664613208391682.gif";
 import win5 from "@/assets/pgvip/upload_2048664879127560194.gif";
 import win6 from "@/assets/pgvip/upload_2048665011692437505.gif";
 
+// Provider tile images (real avif from pgvip CDN)
+import provPG from "@/assets/pgvip/providers/p_200.avif";
+import provWG from "@/assets/pgvip/providers/p_13.avif";
+import provTADA from "@/assets/pgvip/providers/p_27.avif";
+import provPP from "@/assets/pgvip/providers/p_3.avif";
+import provMarbleX from "@/assets/pgvip/providers/p_7.avif";
+import provJDB from "@/assets/pgvip/providers/p_10.avif";
+import provKA from "@/assets/pgvip/providers/p_14.avif";
+import provMG from "@/assets/pgvip/providers/p_21.avif";
+import provCQ9 from "@/assets/pgvip/providers/p_301.avif";
+import provBaison from "@/assets/pgvip/providers/p_316.avif";
+import provExtra1 from "@/assets/pgvip/providers/p_310.avif";
+import provExtra2 from "@/assets/pgvip/providers/p_313.avif";
+
 const BANNERS = [pgvipBanner1, pgvipBanner2, pgvipBanner3, pgvipBanner4, pgvipBanner5, pgvipBanner6];
 const PG_GAMES = [pgGame1, pgGame2, pgGame3, pgGame4, pgGame5, pgGame6, pgGame7, pgGame8];
 const WINNER_IMGS = [win1, win2, win3, win4, win5, win6];
+void provExtra1; void provExtra2;
 
 export const Route = createFileRoute("/")({ component: Index });
 
@@ -97,34 +112,34 @@ const popularGames: { name: string; img?: string; tag?: "PG" | "WG" | "HOT" | "N
 ];
 
 const slotProviderCards = [
-  { name: "PG Slots", grad: "linear-gradient(180deg,#ff6b35,#c4151c)" },
-  { name: "WG Slots", grad: "linear-gradient(180deg,#ff8aa8,#c4151c)" },
-  { name: "TADA Slots", grad: "linear-gradient(180deg,#ff5577,#a4101a)" },
-  { name: "PP Slots", grad: "linear-gradient(180deg,#ff7a2f,#a4101a)" },
-  { name: "MarbleX Slots", grad: "linear-gradient(180deg,#2d6cff,#0a2a8a)" },
-  { name: "JDB Slots", grad: "linear-gradient(180deg,#ff3a3a,#7a0a0a)" },
-  { name: "KA Slots", grad: "linear-gradient(180deg,#ff7a2f,#7a1a0a)" },
-  { name: "MG Slots", grad: "linear-gradient(180deg,#5577ff,#1a2a7a)" },
-  { name: "CQ9 Slots", grad: "linear-gradient(180deg,#ffb84a,#a45a0a)" },
+  { name: "PG Slots", img: provPG },
+  { name: "WG Slots", img: provWG },
+  { name: "TADA Slots", img: provTADA },
+  { name: "PP Slots", img: provPP },
+  { name: "MarbleX Slots", img: provMarbleX },
+  { name: "JDB Slots", img: provJDB },
+  { name: "KA Slots", img: provKA },
+  { name: "MG Slots", img: provMG },
+  { name: "CQ9 Slots", img: provCQ9 },
 ];
 
 const blockchainGames = [
-  { name: "TADA Blockchain", grad: "linear-gradient(180deg,#a04aff,#3a1a7a)" },
-  { name: "WG Blockchain", grad: "linear-gradient(180deg,#ffb84a,#a45a0a)" },
-  { name: "JDB Blockchain", grad: "linear-gradient(180deg,#ffd84a,#a48a0a)" },
+  { name: "TADA Blockchain", img: provTADA },
+  { name: "WG Blockchain", img: provWG },
+  { name: "JDB Blockchain", img: provJDB },
 ];
 const fishGamesData = [
-  { name: "JDB Pescaria", grad: "linear-gradient(180deg,#1a8aff,#0a3a7a)" },
-  { name: "TADA Pescaria", grad: "linear-gradient(180deg,#3aaaff,#0a4a8a)" },
-  { name: "WG Pescaria", grad: "linear-gradient(180deg,#7a3aff,#2a0a5a)" },
+  { name: "JDB Pescaria", img: provJDB },
+  { name: "TADA Pescaria", img: provTADA },
+  { name: "WG Pescaria", img: provWG },
 ];
 const cardGamesData = [
-  { name: "TADA Cartas", grad: "linear-gradient(180deg,#3aaaff,#0a4a8a)" },
-  { name: "Baison Cartas", grad: "linear-gradient(180deg,#a04aff,#5a1a8a)" },
-  { name: "WG Cartas", grad: "linear-gradient(180deg,#c44aff,#5a1a8a)" },
+  { name: "TADA Cartas", img: provTADA },
+  { name: "Baison Cartas", img: provBaison },
+  { name: "WG Cartas", img: provWG },
 ];
 const sportGamesData = [
-  { name: "WG Esporte", grad: "linear-gradient(180deg,#4a6a8a,#1a2a4a)" },
+  { name: "WG Esporte", img: provWG },
 ];
 
 const winners = Array.from({ length: 14 }, (_, i) => ({
@@ -177,10 +192,12 @@ function GameCard({ name, img, tag, redLabel = true }: { name: string; img?: str
   );
 }
 
-function ProviderCard({ name, grad }: { name: string; grad: string }) {
+function ProviderCard({ name, img }: { name: string; img?: string }) {
   return (
-    <div className="relative rounded-xl overflow-hidden">
-      <div className="aspect-[4/5] w-full" style={{ background: grad }} />
+    <div className="relative rounded-xl overflow-hidden bg-black/30">
+      <div className="aspect-[4/5] w-full">
+        {img ? <img src={img} alt={name} className="w-full h-full object-cover" loading="lazy" /> : null}
+      </div>
       <button className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/40 flex items-center justify-center">
         <Star className="w-3 h-3 text-white/80" />
       </button>
