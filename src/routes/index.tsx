@@ -49,9 +49,24 @@ import win4 from "@/assets/pgvip/upload_2048664613208391682.gif";
 import win5 from "@/assets/pgvip/upload_2048664879127560194.gif";
 import win6 from "@/assets/pgvip/upload_2048665011692437505.gif";
 
+// Provider tile images (real avif from pgvip CDN)
+import provPG from "@/assets/pgvip/providers/p_200.avif";
+import provWG from "@/assets/pgvip/providers/p_13.avif";
+import provTADA from "@/assets/pgvip/providers/p_27.avif";
+import provPP from "@/assets/pgvip/providers/p_3.avif";
+import provMarbleX from "@/assets/pgvip/providers/p_7.avif";
+import provJDB from "@/assets/pgvip/providers/p_10.avif";
+import provKA from "@/assets/pgvip/providers/p_14.avif";
+import provMG from "@/assets/pgvip/providers/p_21.avif";
+import provCQ9 from "@/assets/pgvip/providers/p_301.avif";
+import provBaison from "@/assets/pgvip/providers/p_316.avif";
+import provExtra1 from "@/assets/pgvip/providers/p_310.avif";
+import provExtra2 from "@/assets/pgvip/providers/p_313.avif";
+
 const BANNERS = [pgvipBanner1, pgvipBanner2, pgvipBanner3, pgvipBanner4, pgvipBanner5, pgvipBanner6];
 const PG_GAMES = [pgGame1, pgGame2, pgGame3, pgGame4, pgGame5, pgGame6, pgGame7, pgGame8];
 const WINNER_IMGS = [win1, win2, win3, win4, win5, win6];
+void provExtra1; void provExtra2;
 
 export const Route = createFileRoute("/")({ component: Index });
 
